@@ -25,13 +25,13 @@
                         <div class="itemv-slide-h2">
                             <div class="info-sideh1">
                                 <div class="picture-slideshow d-none d-md-block">
-                                    <a href="{{ $item->link }}">
+                                    <a href="javascript:void(0)">
                                         <img data-src="{{ url($item->image) }}" class="lazyload img_desktop img-fluid w-100"
                                             alt="slideshow">
                                     </a>
                                 </div>
                                 <div class="picture-slideshow d-block d-md-none">
-                                    <a href="{{ $item->link }}">
+                                    <a href="javascript:void(0)">
                                         <img data-src="{{ url($item->image) }}" class="lazyload img-fluid w-100 img_desktop"
                                             alt="slideshow">
                                     </a>
@@ -39,7 +39,7 @@
                                 <div class="box-content">
                                     <div
                                         class="box-info box-info-template--16764744466743__34e94999-fb8e-497d-8a30-9ca7875b9133-16712308946a20eaec-1">
-                                        <div class="sub-title">
+                                        {{-- <div class="sub-title">
                                             <h3 class="" style="color: #010101">{{ $item->subimg1 }}</h3>
                                         </div>
                                         <div class="box-title">
@@ -49,11 +49,11 @@
                                         <div class="box-title2">
                                             <h3 class="title-small mb-0" style="color:#010101;">{{ $item->description }}
                                             </h3>
-                                        </div>
-                                        <div class="button-main">
+                                        </div> --}}
+                                        <div class="button-main" style="margin-top: 0">
                                             <a class="button-shop button-shop-template--16764744466743__34e94999-fb8e-497d-8a30-9ca7875b9133-template--16764744466743__34e94999-fb8e-497d-8a30-9ca7875b9133-16712308946a20eaec-1 "
-                                                href="{{ $item->link }}">
-                                                <span style="color:#ffffff">{{ getLanguage('learn_more') }}</span>
+                                                href="{{ route('pagecontent', ['slug' => 'gioi-thieu']) }}">
+                                                <span style="color:#ffffff">{{ getLanguage('about_us') }}</span>
                                             </a>
                                         </div>
                                     </div>
@@ -90,7 +90,7 @@
             }
         </style>
     </div>
-    <div id="shopify-section-template--16764744466743__436a9c6e-1ca6-48c5-9b1a-33847fa461d7" class="shopify-section">
+    {{-- <div id="shopify-section-template--16764744466743__436a9c6e-1ca6-48c5-9b1a-33847fa461d7" class="shopify-section">
         <div data-section-id="template--16764744466743__436a9c6e-1ca6-48c5-9b1a-33847fa461d7"
             data-section-type="section-info-v1" style=" ">
             <div class="section-info-v1">
@@ -104,8 +104,8 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div id="shopify-section-template--16764744466743__aebb2e92-551c-4c8e-9bda-ee38d506e3b4"
+    </div> --}}
+    {{-- <div id="shopify-section-template--16764744466743__aebb2e92-551c-4c8e-9bda-ee38d506e3b4"
         class="shopify-section index-section">
         <div data-section-id="template--16764744466743__aebb2e92-551c-4c8e-9bda-ee38d506e3b4"
             data-section-type="section-brand-v1" style="  ">
@@ -312,30 +312,31 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <div id="shopify-section-template--16764744466743__ae64d2ed-fe4c-434e-b88a-54981f3561f6" class="shopify-section">
         <div data-section-id="template--16764744466743__ae64d2ed-fe4c-434e-b88a-54981f3561f6"
             data-section-type="section-banner-v3" style=" ">
             <div class="section-banner-v3 mt-all">
                 <div class="container container-v2">
                     <div class="text-center">
-                        <h3 class="title_heading" style="color: #000000">{{ getLanguage('featured_categories') }}</h3>
+                        <h3 class="title_heading" style="color: #000000">{{ getLanguage('brand_products') }}</h3>
                         {{-- <p class="sub_heading" style="color: #666666">{{getLanguage('our_service_committed_you_to_discover_the_best_japanese_tea_you_are_looking_for')}}</p> --}}
                     </div>
                     <div class="row">
-                        @foreach ($typeProducts as $key => $type)
-                            <div class="col-lg-4 col-md-4 col-12 col-sm-12">
+                        @foreach ($categories as $key => $category)
+                            <div class="col-lg-4 col-md-4 col-12 col-sm-12 mb-3">
                                 <div class="banner-ver">
                                     <div class="banner-item">
-                                        <a href="{{ route('allListType', ['danhmuc' => $type->category->slug, 'loaidanhmuc' => $type->slug]) }}"
+                                        <a href="{{ route('allListProCate', ['danhmuc' => $category->slug]) }}"
                                             class="box-img d-block">
-                                            <img data-src="{{ url($type->avatar) }}" class="lazyload img-fluid w-100"
-                                                alt="_img">
+                                            <img data-src="{{ url($category->imagehome) }}"
+                                                class="lazyload img-fluid w-100" alt="_img">
                                         </a>
                                         <div class="content">
                                             <h3 class="title-banner" style="color: #ffffff">
-                                                {{ languageName($type->name) }}</h3>
-                                            <a href="{{ route('allListType', ['danhmuc' => $type->category->slug, 'loaidanhmuc' => $type->slug]) }}"
+                                                {{ languageName($category->name) }}</h3>
+                                            <div class="sub-title" style="color: #ffffff">{!! languageName($category->description) !!}</div>
+                                            <a href="{{ route('allListProCate', ['danhmuc' => $category->slug]) }}"
                                                 class="btn-template--16764744466743__ae64d2ed-fe4c-434e-b88a-54981f3561f6">{{ getLanguage('learn_more') }}</a>
                                         </div>
                                     </div>
@@ -363,7 +364,7 @@
         <style data-shopify>
             .section-template--16764744466743__custom_liquid_MLtYUt-padding {
                 padding-top: calc(40px * 0.75);
-                padding-bottom: calc(52px * 0.75);
+                padding-bottom: 0;
             }
 
             @media screen and (min-width: 750px) {
@@ -376,9 +377,12 @@
         <div class="color-background-1 gradient">
             <div class="youtube-embed-wrapper">
                 @php
-                    $video = $video->link;
-                    $link = str_replace('watch?v=', 'embed/', $video);
+                    $video_youtube = $video->link;
+                    $link = str_replace('watch?v=', 'embed/', $video_youtube);
                 @endphp
+                <div class="bg-video">
+                    <img src="{{url($video->image)}}" alt="bg-video" class="img-fluid" loading="lazy">
+                </div>
                 <iframe width="100%" height="500" src="{{ $link }}" title="YouTube video player"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -390,7 +394,8 @@
                         /* 必要に応じて調整 */
                         margin: 0 auto;
                         position: relative;
-                        padding-bottom: 56.25%;
+                        /* padding-bottom: 56.25%; */
+                        padding-bottom: 42.25%;
                         /* 16:9 のアスペクト比に合わせた余白 */
                         height: 0;
                     }
@@ -398,9 +403,44 @@
                     .youtube-embed-wrapper iframe {
                         position: absolute;
                         top: 0;
+                        right: 0;
+                        width: 50%;
+                        height: 100%;
+                    }
+
+                    .youtube-embed-wrapper .bg-video {
+                        position: absolute;
+                        top: 0;
                         left: 0;
+                        width: 50%;
+                        height: 100%;
+                    }
+
+                    .youtube-embed-wrapper .bg-video img {
                         width: 100%;
                         height: 100%;
+                        object-fit: cover;
+                    }
+
+                    @media (max-width: 768px) {
+                        .youtube-embed-wrapper {
+                            padding-bottom: 0;
+                            display: flex;
+                            flex-direction: column-reverse;
+                            height: 100%;
+                            margin-bottom: 30px;
+                        }
+
+                        .youtube-embed-wrapper iframe,
+                        .youtube-embed-wrapper .bg-video {
+                            position: relative;
+                            width: 100%;
+                            height: auto;
+                        }
+
+                        .youtube-embed-wrapper iframe {
+                            height: 300px;
+                        }
                     }
                 </style>
             </div>
@@ -432,7 +472,7 @@
             }
         </style>
     </div>
-    <div id="shopify-section-template--16764744466743__17e41e04-b025-4d25-8217-4d380dfb5f0f" class="shopify-section">
+    {{-- <div id="shopify-section-template--16764744466743__17e41e04-b025-4d25-8217-4d380dfb5f0f" class="shopify-section">
         <div data-section-id="template--16764744466743__17e41e04-b025-4d25-8217-4d380dfb5f0f"
             data-section-type="section-banner-v11" style=" margin-bottom: 80px;">
             <div class="section-banner-v11 mt-all" style="background: #f5f8f2">
@@ -471,8 +511,8 @@
                 background: #000000;
             }
         </style>
-    </div>
-    <div id="shopify-section-template--16764744466743__section_testimonial_v1" class="shopify-section index-section">
+    </div> --}}
+    {{-- <div id="shopify-section-template--16764744466743__section_testimonial_v1" class="shopify-section index-section">
         <div data-section-id="template--16764744466743__section_testimonial_v1" data-section-type="section-testimonial-v1"
             style=" ">
             <div class="section-testimonial-v1 mt-all">
@@ -503,7 +543,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <div id="shopify-section-template--16764744466743__e7c6375a-c223-483c-8262-c77b29a34549" class="shopify-section">
         <div data-section-id="template--16764744466743__e7c6375a-c223-483c-8262-c77b29a34549"
             data-section-type="section-blog-v1" style="  ">
@@ -518,8 +558,8 @@
                                 <div class="content-section-blog-v1">
                                     <div class="picrure">
                                         <a href="{{ route('detailBlog', ['slug' => $blog->slug]) }}" class="image_url">
-                                            <img data-src="{{ url($blog->image) }}"
-                                                alt="{{ languageName($blog->title) }}" class="lazyload img-fluid">
+                                            <img data-src="{{ url($blog->image) }}" alt="{{ languageName($blog->title) }}"
+                                                class="lazyload img-fluid">
                                         </a>
                                         <div class="date">
                                             <span class="day">{{ date('d', strtotime($blog->created_at)) }}</span>

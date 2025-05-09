@@ -18,9 +18,7 @@ $img = json_decode($product->images);
             <!--     END LABEL -->
             <!--     ICON PRODUCT -->
             <div class="product-icon-action">
-                <div class="add-wishlist">
-                </div>
-                <div class="add-to-cart">
+                {{-- <div class="add-to-cart">
                     <form
                         class="inline-block icon-addcart margin_right_10 box-shadow"
                         data-toggle="tooltip" data-placement="top"
@@ -117,7 +115,7 @@ $img = json_decode($product->images);
                             </svg>
                         </i>
                     </a>
-                </div>
+                </div> --}}
             </div>
             <!--     END ICON -->
         </div>

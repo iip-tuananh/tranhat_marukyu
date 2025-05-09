@@ -11,48 +11,50 @@
 @section('js')
 @endsection
 @section('css')
-<style>
-    #shopify-section-template--16764744270135__collection_template {
-        padding-top: 150px;
-    }
-    @media(max-width: 768px) {
+    <style>
         #shopify-section-template--16764744270135__collection_template {
-            padding-top: 0px;
+            padding-top: 85px;
         }
-    }
-</style>
+
+        @media(max-width: 768px) {
+            #shopify-section-template--16764744270135__collection_template {
+                padding-top: 0px;
+            }
+        }
+    </style>
 @endsection
 @section('content')
     <div id="shopify-section-template--16764744270135__collection_template" class="shopify-section">
         <!-- collection-template.liquid -->
-        <div class="wrap-bread-crumb breadcrumb_collection style1">
-            <div class="text-center bg_bread " style="background-color : #5A8C34">
+        <div class="wrap-bread-crumb breadcrumb_collection style1"
+            style="background-image: url({{ url('frontend/images/bg-breadcrumb.jpg') }}); background-position: center; background-repeat: no-repeat; background-size: cover;">
+            <div class="text-center bg_bread ">
                 <div class="title-page">
-                    <h2 class="">{{$title}}</h2>
+                    <h2 class="">{{ $title }}</h2>
                 </div>
                 <!-- /snippets/breadcrumb.liquid -->
-                <div class="bread-crumb">
-                    <a href="{{route('home')}}" title="Back to the frontpage">{{getLanguage('home')}}<i class="fa fa-angle-right"
-                            aria-hidden="true"></i></a>
-                    <strong>{{$title}}</strong>
+                <div class="bread-crumb ">
+                    <a href="{{ route('home') }}" title="Back to the frontpage">{{ getLanguage('home') }}<i
+                            class="fa fa-angle-right" aria-hidden="true"></i></a>
+                    <strong>{{ $title }}</strong>
                 </div>
             </div>
         </div>
         <style>
             .breadcrumb_collection .title-page h2 {
-                color: #ffffff !important;
+                color: #000 !important;
             }
 
             .breadcrumb_collection .bread-crumb a {
-                color: #ffffff !important;
+                color: #000 !important;
             }
 
             .breadcrumb_collection .bread-crumb a i {
-                color: #ffffff !important;
+                color: #000 !important;
             }
 
             .breadcrumb_collection .bread-crumb strong {
-                color: #ffffff !important;
+                color: #000 !important;
             }
 
             @media(min-width : 992px) {
@@ -429,9 +431,9 @@
                                         </div>
                                         <script>
                                             /*============================================================================
-                                                                         Inline JS because collection liquid object is only available
-                                                                         on collection pages and not external JS files
-                                                                       ==============================================================================*/
+                                                                                                                                                         Inline JS because collection liquid object is only available
+                                                                                                                                                         on collection pages and not external JS files
+                                                                                                                                                       ==============================================================================*/
                                             Shopify.queryParams = {};
                                             if (location.search.length) {
                                                 for (var aKeyValue, i = 0, aCouples = location.search.substr(1).split('&'); i < aCouples.length; i++) {
@@ -705,13 +707,13 @@
                                     <div class="product-grid-view grid-uniform">
                                         <div class="row ">
                                             @foreach ($list as $item)
-                                            <div class="col-md-4 js_size_prod col-lg-4 col-6 pb-4 trans-product">
-                                                @include('layouts.product.item',['product' => $item])
-                                            </div>
+                                                <div class="col-md-3 js_size_prod col-lg-3 col-6 pb-4 trans-product">
+                                                    @include('layouts.product.item', ['product' => $item])
+                                                </div>
                                             @endforeach
                                         </div>
                                         <div class="pagi-nav text-right">
-                                            {{$list->links()}}
+                                            {{ $list->links() }}
                                         </div>
                                         <!-- End Paginav -->
                                     </div>

@@ -63,7 +63,7 @@ class AppServiceProvider extends ServiceProvider
                 return $query;
             });
             $type_cates = TypeProduct::where('status',1)->where('home_status',1)->orderBy('id','DESC')->get(['id','name','slug', 'cate_slug', 'cate_id']);
-            $banner = Banner::where(['status'=>1])->get(['id','image','link','title','description','subimg1','subimg2','subimg3','sublink1','sublink2','sublink3']);
+            $banner = Banner::where(['status'=>1])->limit(1)->get(['id','image','link','title','description','subimg1','subimg2','subimg3','sublink1','sublink2','sublink3']);
             $cartcontent = session()->get('cart', []);
             $viewold = session()->get('viewoldpro', []);
             $compare = session()->get('compareProduct', []);

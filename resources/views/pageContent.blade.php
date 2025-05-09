@@ -43,7 +43,7 @@
         <div class="content-page article-page">
             <div class="container container-v2">
                 <div class="row">
-                    <div class="col-lg-4 col-xl-3 ">
+                    <div class="col-lg-4 col-xl-3 order-2 order-lg-1">
                         <div class="article_sidebar">
                             <div class="widget widget-search">
                                 <form class="wg-search-form" action="#">
@@ -82,7 +82,7 @@
                             </div>
                         </div>
                     </div>
-                    <div style="" class=" col-lg-8 col-xl-9">
+                    <div style="" class=" col-lg-8 col-xl-9 order-1 order-lg-2">
                         <div class="content-single-blog">
                             <div class="post-details">
                                 <div class="content-image-single">

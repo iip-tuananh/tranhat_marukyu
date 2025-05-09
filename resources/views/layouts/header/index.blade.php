@@ -1,4 +1,4 @@
-<div class="d-none d-md-block promo_topbar relative text-center"
+{{-- <div class="d-none d-md-block promo_topbar relative text-center"
     style="background-image : url(//osadateajapan.com/cdn/shop/files/Announcements_1920x150_372c7c1c-a4f0-440f-bb7d-bd6a9bf8972d.png?v=1671305991)">
     <div class=" relative">
         <span><em>{{getLanguage('try_right_japanese_tea_for_you')}}</em></span>
@@ -23,7 +23,7 @@
             </svg>
         </a>
     </div>
-</div>
+</div> --}}
 <div id="shopify-section-header" class="shopify-section index-section">
     <!-- /sections/header.liquid -->
     <header id="header"
@@ -49,8 +49,24 @@
                                             class="delay03  relative menu_lv1 nav-link">{{getLanguage('home')}}</a>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a href="javascript:void(0)" title="{{getLanguage('product')}}"
-                                            class="delay03 nav-link  menu_lv1 ">{{getLanguage('product')}}</a>
+                                        <a href="javascript:void(0)" title="{{getLanguage('about_us')}}"
+                                            class="delay03 nav-link  menu_lv1 ">{{getLanguage('about_us')}}</a>
+                                        <div class="dropdown-menu list-woman page show">
+                                            <div class="list-clothing">
+                                                <ul class="mb-0 list-unstyled">
+                                                    @foreach ($pageContent as $item)
+                                                    <li class="px-3">
+                                                        <a href="{{route('pagecontent',['slug' => $item->slug])}}" title="{{languageName($item->title)}}"
+                                                            class=" relative menu_lv1 ">{{languageName($item->title)}}</a>
+                                                    </li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a href="javascript:void(0)" title="{{getLanguage('brand')}}"
+                                            class="delay03 nav-link  menu_lv1 ">{{getLanguage('brand')}}</a>
                                         <div class="dropdown-menu list-woman page show">
                                             <div class="list-clothing">
                                                 <ul class="mb-0 list-unstyled">
@@ -63,6 +79,11 @@
                                                             <div class="dropdown-menu menu_lv2 show">
                                                                 <div class="list-clothing">
                                                                     <ul class="px-0">
+                                                                        <li class="list-unstyled px-3 py-1">
+                                                                            <a href="{{route('brandStory',['slug' => $category->slug])}}"
+                                                                                title="{{getLanguage('story_brand')}}"
+                                                                                class=" relative menu_lv3 ">{{getLanguage('story_brand')}}</a>
+                                                                        </li>
                                                                         @foreach ($category->typeCate as $type)
                                                                         <li class="list-unstyled px-3 py-1">
                                                                             <a href="{{route('allListType',['danhmuc' => $category->slug,'loaidanhmuc' => $type->slug])}}"
@@ -74,22 +95,6 @@
                                                                 </div>
                                                             </div>
                                                         @endif
-                                                    </li>
-                                                    @endforeach
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="nav-item dropdown">
-                                        <a href="javascript:void(0)" title="{{getLanguage('about_us')}}"
-                                            class="delay03 nav-link  menu_lv1 ">{{getLanguage('about_us')}}</a>
-                                        <div class="dropdown-menu list-woman page show">
-                                            <div class="list-clothing">
-                                                <ul class="mb-0 list-unstyled">
-                                                    @foreach ($pageContent as $item)
-                                                    <li class="px-3">
-                                                        <a href="{{route('pagecontent',['slug' => $item->slug])}}" title="{{languageName($item->title)}}"
-                                                            class=" relative menu_lv1 ">{{languageName($item->title)}}</a>
                                                     </li>
                                                     @endforeach
                                                 </ul>
@@ -529,32 +534,6 @@
                     <a href="{{route('home')}}" title="{{getLanguage('home')}}" class="nammenu w-100 menu_lv1 "><span>{{getLanguage('home')}}</span></a>
                 </div>
                 <div class="menu-horizon-list">
-                    <a href="javascript:void(0)" title="{{getLanguage('product')}}" class="relative nammenu ">{{getLanguage('product')}}</a>
-                    <a data-check="c1" class="toggle-menumobile  js_icon_horizon-menu">
-                        <i class=" fa fa-angle-right"></i>
-                    </a>
-                    <div class="c1 menu_lv2">
-                        <a href="javascript:void(0)" title="{{getLanguage('product')}}" class="js-back back-to"> {{getLanguage('product')}} <i
-                                class="fa fa-angle-right pl-2 "></i> </a>
-                        @foreach ($categoryhome as $item)
-                        <h2 class="title_menu_mb relative">
-                            <a href="{{route('allListProCate',['danhmuc' => $item->slug])}}" title="{{languageName($item->name)}}"
-                                class="delay03 uppercase menu_lv1 "><span>{{languageName($item->name)}}</span></a>
-                        </h2>
-                        @if ($item->typeCate->count() > 0)
-                        <ul class="list-unstyled mb-0 menu_lv3">
-                            @foreach ($item->typeCate as $type)
-                            <li>
-                                <a href="{{route('allListType',['danhmuc' => $item->slug,'loaidanhmuc' => $type->slug])}}" title="{{languageName($type->name)}}"
-                                    class="delay03 uppercase menu_lv1 "><span>{{languageName($type->name)}}</span></a>
-                            </li>
-                            @endforeach
-                        </ul>
-                        @endif
-                        @endforeach
-                    </div>
-                </div>
-                <div class="menu-horizon-list">
                     <a href="javascript:void(0)" title="{{getLanguage('about_us')}}" class="relative nammenu ">{{getLanguage('about_us')}}</a>
                     <a data-check="c2" class="toggle-menumobile  js_icon_horizon-menu">
                         <i class=" fa fa-angle-right"></i>
@@ -564,6 +543,36 @@
                                 class="fa fa-angle-right pl-2 "></i> </a>
                         @foreach ($pageContent as $item)
                         <h2 class="title_menu_mb title_only_one"><a href="{{route('pagecontent',['slug' => $item->slug])}}">{{languageName($item->title)}}</a></h2>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="menu-horizon-list">
+                    <a href="javascript:void(0)" title="{{getLanguage('brand')}}" class="relative nammenu ">{{getLanguage('brand')}}</a>
+                    <a data-check="c1" class="toggle-menumobile  js_icon_horizon-menu">
+                        <i class=" fa fa-angle-right"></i>
+                    </a>
+                    <div class="c1 menu_lv2">
+                        <a href="javascript:void(0)" title="{{getLanguage('brand')}}" class="js-back back-to"> {{getLanguage('brand')}} <i
+                                class="fa fa-angle-right pl-2 "></i> </a>
+                        @foreach ($categoryhome as $item)
+                        <h2 class="title_menu_mb relative">
+                            <a href="{{route('allListProCate',['danhmuc' => $item->slug])}}" title="{{languageName($item->name)}}"
+                                class="delay03 uppercase menu_lv1 "><span>{{languageName($item->name)}}</span></a>
+                        </h2>
+                        @if ($item->typeCate->count() > 0)
+                        <ul class="list-unstyled mb-0 menu_lv3">
+                            <li>
+                                <a href="{{route('brandStory',['slug' => $item->slug])}}" title="{{getLanguage('story_brand')}}"
+                                    class="delay03 uppercase menu_lv1 "><span>{{getLanguage('story_brand')}}</span></a>
+                            </li>
+                            @foreach ($item->typeCate as $type)
+                            <li>
+                                <a href="{{route('allListType',['danhmuc' => $item->slug,'loaidanhmuc' => $type->slug])}}" title="{{languageName($type->name)}}"
+                                    class="delay03 uppercase menu_lv1 "><span>{{languageName($type->name)}}</span></a>
+                            </li>
+                            @endforeach
+                        </ul>
+                        @endif
                         @endforeach
                     </div>
                 </div>
