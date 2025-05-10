@@ -21,46 +21,44 @@
             data-section-type="section-slideshow-v2" style="  ">
             <div class="section-slideshow-v2">
                 <div class="slick-side-h2">
-                    @foreach ($banner as $item)
-                        <div class="itemv-slide-h2">
-                            <div class="info-sideh1">
-                                <div class="picture-slideshow d-none d-md-block">
-                                    <a href="javascript:void(0)">
-                                        <img data-src="{{ url($item->image) }}" class="lazyload img_desktop img-fluid w-100"
-                                            alt="slideshow">
-                                    </a>
-                                </div>
-                                <div class="picture-slideshow d-block d-md-none">
-                                    <a href="javascript:void(0)">
-                                        <img data-src="{{ url($item->image) }}" class="lazyload img-fluid w-100 img_desktop"
-                                            alt="slideshow">
-                                    </a>
-                                </div>
-                                <div class="box-content">
-                                    <div
-                                        class="box-info box-info-template--16764744466743__34e94999-fb8e-497d-8a30-9ca7875b9133-16712308946a20eaec-1">
-                                        {{-- <div class="sub-title">
-                                            <h3 class="" style="color: #010101">{{ $item->subimg1 }}</h3>
-                                        </div>
-                                        <div class="box-title">
-                                            <h3 class="titlebig mb-0" style="color:#010101;">{{ $item->title }}
-                                            </h3>
-                                        </div>
-                                        <div class="box-title2">
-                                            <h3 class="title-small mb-0" style="color:#010101;">{{ $item->description }}
-                                            </h3>
-                                        </div> --}}
-                                        <div class="button-main" style="margin-top: 0">
-                                            <a class="button-shop button-shop-template--16764744466743__34e94999-fb8e-497d-8a30-9ca7875b9133-template--16764744466743__34e94999-fb8e-497d-8a30-9ca7875b9133-16712308946a20eaec-1 "
-                                                href="{{ route('pagecontent', ['slug' => 'gioi-thieu']) }}">
-                                                <span style="color:#ffffff">{{ getLanguage('about_us') }}</span>
-                                            </a>
+                            <div class="itemv-slide-h2">
+                                <div class="info-sideh1">
+                                    <div class="picture-slideshow d-none d-md-block">
+                                        <a href="javascript:void(0)">
+                                            <img data-src="{{ url($banner[0]->image) }}" class="lazyload img_desktop img-fluid w-100"
+                                                alt="slideshow">
+                                        </a>
+                                    </div>
+                                    <div class="picture-slideshow d-block d-md-none">
+                                        <a href="javascript:void(0)">
+                                            <img data-src="{{ url($banner[1]->image) }}" class="lazyload img-fluid w-100 img_desktop"
+                                                alt="slideshow">
+                                        </a>
+                                    </div>
+                                    <div class="box-content">
+                                        <div
+                                            class="box-info box-info-template--16764744466743__34e94999-fb8e-497d-8a30-9ca7875b9133-16712308946a20eaec-1">
+                                            {{-- <div class="sub-title">
+                                                <h3 class="" style="color: #010101">{{ $item->subimg1 }}</h3>
+                                            </div>
+                                            <div class="box-title">
+                                                <h3 class="titlebig mb-0" style="color:#010101;">{{ $item->title }}
+                                                </h3>
+                                            </div>
+                                            <div class="box-title2">
+                                                <h3 class="title-small mb-0" style="color:#010101;">{{ $item->description }}
+                                                </h3>
+                                            </div> --}}
+                                            <div class="button-main" style="margin-top: 0">
+                                                <a class="button-shop button-shop-template--16764744466743__34e94999-fb8e-497d-8a30-9ca7875b9133-template--16764744466743__34e94999-fb8e-497d-8a30-9ca7875b9133-16712308946a20eaec-1 "
+                                                    href="{{ route('pagecontent', ['slug' => 'gioi-thieu']) }}">
+                                                    <span style="color:#ffffff">{{ getLanguage('about_us') }}</span>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
                 </div>
             </div>
         </div>
